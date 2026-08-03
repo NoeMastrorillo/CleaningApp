@@ -57,7 +57,6 @@ struct TaskView: View {
     }
     
     private var barStatus: (tint: Color, label: String) {
-        print(task.daysRemaining)
         switch task.daysRemaining {
         case ..<0:
             return (.red, "En retard de \(task.daysOverdue) jour" + (task.daysOverdue > 1 ? "s" : ""))
