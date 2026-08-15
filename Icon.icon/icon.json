@@ -1,0 +1,85 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.20392,0.82745,1.00000,1.00000",
+      "display-p3:0.27544,0.71618,0.93921,1.00000"
+    ],
+    "orientation" : {
+      "start" : {
+        "x" : 0.5,
+        "y" : 0
+      },
+      "stop" : {
+        "x" : 0.5,
+        "y" : 0.7
+      }
+    }
+  },
+  "groups" : [
+    {
+      "blur-material" : 0.5,
+      "layers" : [
+        {
+          "image-name" : "Holes.svg",
+          "name" : "Holes 2"
+        }
+      ],
+      "shadow" : {
+        "kind" : "none",
+        "opacity" : 0.75
+      },
+      "specular" : false,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    },
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "Face.svg",
+          "name" : "Face"
+        }
+      ],
+      "lighting" : "individual",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    },
+    {
+      "blend-mode" : "normal",
+      "blur-material" : 0.5,
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "Side.svg",
+          "name" : "Side"
+        }
+      ],
+      "opacity" : 1,
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.7
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
