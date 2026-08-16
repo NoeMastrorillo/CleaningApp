@@ -51,8 +51,8 @@ struct ContentView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: CleaningTask.self, configurations: config)
     
-    container.mainContext.insert(CleaningTask(name: "Aspirateur", recurrence: 7, lastCompletion: Date()))
-    container.mainContext.insert(CleaningTask(name: "Vitres", recurrence: 14, lastCompletion: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date()))
+    container.mainContext.insert(CleaningTask(name: "Aspirateur", recurrence: 7, lastCompletion: Date(), emojiIcon: "💨"))
+    container.mainContext.insert(CleaningTask(name: "Vitres", recurrence: 14, lastCompletion: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date(), emojiIcon: "🪟"))
     
     return ContentView().modelContainer(container)
 }
