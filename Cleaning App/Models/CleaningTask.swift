@@ -25,12 +25,14 @@ class CleaningTask {
     var name: String
     var recurrence: Int
     var lastCompletion: Date
+    var emojiIcon: String? = nil
     
-    init(id: UUID = UUID(), name: String, recurrence: Int, lastCompletion: Date) {
+    init(id: UUID = UUID(), name: String, recurrence: Int, lastCompletion: Date, emojiIcon: String? = nil) {
         self.id = id
         self.name = name
         self.recurrence = recurrence
         self.lastCompletion = lastCompletion <= Date() ? lastCompletion : Date()
+        self.emojiIcon = emojiIcon
     }
     
     var nextDueDate: Date {
