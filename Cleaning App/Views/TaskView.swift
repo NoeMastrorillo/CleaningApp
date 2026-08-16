@@ -16,23 +16,32 @@ struct TaskView: View {
     @State var completed: Bool = false
     
     var body: some View {
-        HStack(alignment: .center, spacing: 32) {
+        HStack(alignment: .center, spacing: 16) {
+            if let emoji = task.emojiIcon {
+                Text(emoji)
+                    .font(.title)
+            }
             VStack(alignment: .leading) {
                 let (tint, label) = barStatus
                 HStack {
                     Text(task.name)
-                        .font(.title3.bold())
+                        .font(.headline.bold())
                         .foregroundStyle(.primary)
                         .bold()
                     Spacer()
+                }
+                ProgressView(value: task.progress)
+                    .tint(tint)
+                HStack {
+                    Text(label)
+                        .font(.subheadline)
                     Text(recurrenceLabel)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                ProgressView(value: task.progress)
-                    .tint(tint)
-                Text(label)
+                
             }
+            Spacer(minLength: 8)
             Toggle("Complete", isOn: $completed)
                 .toggleStyle(CheckboxToggleStyle())
                 .onChange(of: completed) { _, newValue in
@@ -50,10 +59,7 @@ struct TaskView: View {
     }
     
     private var recurrenceLabel: String {
-        switch task.recurrence {
-        case 1: return "Tous les jours"
-        default: return "Tous les \(task.recurrence) jours"
-        }
+        return "/ \(task.recurrence)"
     }
     
     private var barStatus: (tint: Color, label: String) {
@@ -73,6 +79,6 @@ struct TaskView: View {
 
 
 #Preview {
-    let task = CleaningTask(name: "Aspirateur", recurrence: 7, lastCompletion: Calendar.current.date(byAdding: .day, value: -4, to: Date()) ?? Date())
+    let task = CleaningTask(name: "Aspirateur", recurrence: 7, lastCompletion: Calendar.current.date(byAdding: .day, value: -4, to: Date()) ?? Date(), emojiIcon: "💨")
     TaskView(task: task)
 }
