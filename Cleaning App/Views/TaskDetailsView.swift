@@ -14,6 +14,7 @@ struct TaskDetailsView: View {
     
     @Bindable var task: CleaningTask
     
+    @State var draftIcon: String? = nil
     @State var draftName: String
     @State var draftRecurrence: Int
     @State var draftLastCompletion: Date
@@ -24,6 +25,7 @@ struct TaskDetailsView: View {
     
     init(task: CleaningTask, onDelete: @escaping () -> Void) {
         self.task = task
+        self.draftIcon = task.emojiIcon
         self.draftName = task.name
         self.draftRecurrence = task.recurrence
         self.draftLastCompletion = task.lastCompletion
@@ -33,6 +35,7 @@ struct TaskDetailsView: View {
     var body: some View {
         NavigationStack {
             TaskForm(
+                draftIcon: $draftIcon,
                 draftName: $draftName,
                 draftRecurrence: $draftRecurrence,
                 draftLastCompletion: $draftLastCompletion
