@@ -54,6 +54,7 @@ struct TaskDetailsView: View {
                         task.name = draftName.isEmpty ? task.name : draftName
                         task.recurrence = draftRecurrence
                         task.lastCompletion = draftLastCompletion
+                        task.emojiIcon = draftIcon
                         dismiss()
                     } label: {
                         Image(systemName: "checkmark")

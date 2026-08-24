@@ -36,7 +36,7 @@ struct TaskCreationView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button (role: .confirm) {
-                        let task = CleaningTask(name: draftName, recurrence: draftRecurrence, lastCompletion: draftLastCompletion)
+                        let task = CleaningTask(name: draftName, recurrence: draftRecurrence, lastCompletion: draftLastCompletion, emojiIcon: draftIcon)
                         onSubmit(task)
                         dismiss()
                     } label: {
